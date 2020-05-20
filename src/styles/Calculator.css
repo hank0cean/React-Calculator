@@ -1,0 +1,57 @@
+
+.calculator {
+    text-align: center;
+    margin: auto;
+    display: grid;
+    grid-template-areas:
+        "v v v o"
+        "n n n o"
+        "n n n o"
+        "n n n o"
+        "n n n o";
+
+    grid-template-rows: repeat(6, 5rem);
+    grid-template-columns: repeat(4, 5rem);
+    row-gap: 0.6rem;
+    column-gap: 0.6rem;
+}
+
+.card {
+    width: 4.2rem;
+    height: 4.2rem;
+    background: #E0E0E0;
+    font-size: 1rem;
+    text-align: center;
+
+    color: rgba(red, green, blue, alpha);
+    box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+    border-radius: 4px;
+    transition: all 750ms;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: auto;
+}
+
+.card:hover {
+	box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35rem 1.175rem, rgba(2, 8, 20, 0.08) 0px 0.175rem 0.5rem;
+    transform: translateY(1px) scale(1.1);
+}
+
+.card:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.valueBox {
+    grid-area: v;
+}
+
+.operators {
+    grid-area: o;
+}
+
+.numbers {
+    grid-area: n;
+}

@@ -1,0 +1,23 @@
+.operators {
+    margin: 0.2rem;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.operator {
+    background-color: rgb(82, 82, 82);
+    font-size: 2.5rem;
+    font-variant: small-caps;
+    text-align: center;
+}
+
+.operator:focus {
+    outline: none;
+    box-shadow: none;
+    background-color: rgb(82, 82, 82);
+}
+
+.operator:hover {
+    background-color: rgb(61, 61, 61);
+}

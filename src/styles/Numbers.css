@@ -1,0 +1,33 @@
+
+.numbers {
+    margin: 0.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-around;
+}
+
+.number {
+    background-color: orange;
+    font-size: 2.4rem;
+    font-variant: small-caps;
+    text-align: center;
+}
+
+.number:focus {
+    outline: none;
+    box-shadow: none;
+    background-color: orange;
+}
+
+.number:hover {
+    background-color: rgb(212, 138, 0);
+}
+
+.clear {
+    font-size: 2rem;
+}
+
+.decimal {
+    font-size: 2rem;
+}

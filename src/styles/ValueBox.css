@@ -1,0 +1,30 @@
+
+.valuebox {
+    width: 90%;
+    height: 90%;
+    grid-column: 1 / 4;
+}
+
+.valuebox-text {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+    margin: auto;
+}
+
+.valuebox-input {
+    font-size: 3rem;
+}
+
+.valuebox-store {
+    font-size: 1rem;
+    vertical-align: sub;
+    color: rgb(126, 126, 126);
+}
+
+.valuebox-operator {
+    font-size: 1rem;
+    vertical-align: sub;
+    color: rgb(126, 126, 126);
+}
