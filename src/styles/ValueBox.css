@@ -1,29 +1,42 @@
 
 .valuebox {
-    width: 90%;
+    align-self: end;
+    width: 100%;
     height: 90%;
     grid-column: 1 / 4;
+    margin-bottom: 0rem;
 }
 
 .valuebox-text {
-    width: 90%;
+    width: 94%;
     display: flex;
     justify-content: space-between;
-    vertical-align: middle;
+    flex-direction: row;
     margin: auto;
 }
 
 .valuebox-input {
-    font-size: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 2.4rem;
+    max-width: 75%;
+    padding-top: 1rem;
+    text-overflow: clip;
+
 }
 
-.valuebox-store {
+.valuebox-secondValue {
+    display: flex;
+    width: 0rem;
+    margin-left: 0.5rem;
     font-size: 1rem;
     vertical-align: sub;
     color: rgb(126, 126, 126);
+    flex-wrap: wrap;
 }
 
 .valuebox-operator {
+    margin-right: 0.5rem;
     font-size: 1rem;
     vertical-align: sub;
     color: rgb(126, 126, 126);

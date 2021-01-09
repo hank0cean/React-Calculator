@@ -1,36 +1,51 @@
 
-import React, { Component } from 'react';
+import weaveStrings from './../helpers/weaveStrings'
+
+import React, { useRef } from 'react';
 import 'react-bootstrap'
 import './../styles/Calculator.css'
 import './../styles/ValueBox.css'
 
-class ValueBox extends Component {
+function ValueBox(props) {
 
-    renderValueBox(inputValue, storeValue, operator) {
-        return (
-            <p className="valuebox-text">
-                <span className="valuebox-store">
-                    {storeValue ? storeValue : '0'}
-                </span>
-                <span className="valuebox-input">
-                    {inputValue ? inputValue : '0'}
-                </span>
-                <span className="valuebox-operator">
-                    {operator ? operator : '='}
-                </span>
-            </p>
-        );
-    };
+    const valueBoxRef = useRef(null)
     
-    render() { 
-        const calculatorState = this.props.calculatorState;
+    function renderSecondValue(secondValue) {
+        return (
+            <span className="valuebox-secondValue">
+                {secondValue ? secondValue : '0'}
+            </span>
+        )
+    }
 
-        return ( 
-            <div className="card valuebox">
-                {this.renderValueBox(calculatorState.inputValue, calculatorState.storeValue, calculatorState.operator)}
-            </div>
+    function renderMainValue(mainValue) {
+        return (
+            <span className="valuebox-input">
+                {mainValue ? mainValue : '0'}
+            </span>
         );
-    };
+    }
+
+    function renderCurrentOperator(currentOperator) {
+        return (
+            <span className="valuebox-operator">
+                {currentOperator ? currentOperator : '='}
+            </span>
+        );
+    }
+
+    function handleClick() {
+        navigator.clipboard.writeText(props.valueA)
+        alert("text copied: ", props.valueA);
+    }
+
+    return (
+        <div className="card valuebox valuebox-text" onClick={() => navigator.clipboard.writeText(props.valueB ? props.valueB : props.valueA)} >
+            {renderSecondValue(props.valueB)}
+            {renderMainValue(props.valueA)}
+            {renderCurrentOperator(props.operator)}
+        </div>
+    );
 }
 
 export default ValueBox;

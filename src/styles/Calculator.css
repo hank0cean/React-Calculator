@@ -1,7 +1,10 @@
 
 .calculator {
     text-align: center;
-    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
     display: grid;
     grid-template-areas:
         "v v v o"
@@ -10,10 +13,8 @@
         "n n n o"
         "n n n o";
 
-    grid-template-rows: repeat(6, 5rem);
+    grid-template-rows: repeat(5, 5rem);
     grid-template-columns: repeat(4, 5rem);
-    row-gap: 0.6rem;
-    column-gap: 0.6rem;
 }
 
 .card {
@@ -42,6 +43,10 @@
 .card:focus {
     outline: none;
     box-shadow: none;
+}
+
+.highlight {
+    filter: brightness(2);
 }
 
 .valueBox {

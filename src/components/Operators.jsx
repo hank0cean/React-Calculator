@@ -8,13 +8,15 @@ import './../styles/Operators.css'
 class Operators extends Component {
 
     handleClick = value => {
-        console.log(value);
+        console.log("value: " + value)
         this.props.clickHandler(value)
     }
 
     renderOperator(value) {
+        let className = "card operator" + (value === this.props.operator ? " highlight" : '')
+
         return (
-            <Button className="card operator" onClick={() => this.handleClick(value)}>
+            <Button className={className} onClick={() => this.handleClick(value)}>
                 {value}
             </Button>
         );
