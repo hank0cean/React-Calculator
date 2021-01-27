@@ -8,7 +8,8 @@ import './../styles/Operators.css'
 function Operators(props) {
 
     function renderOperator(value) {
-        let className = "card operator" + (value === props.operator || (props.equal && value === '=') ? " highlight" : '')
+
+        let className = "card operator" + (props.highlight === value ? " highlight" : '')
 
         return (
             <Button className={className} onClick={() => props.clickHandler(value)}>

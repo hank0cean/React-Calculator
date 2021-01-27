@@ -121,7 +121,7 @@ function Calculator(props) {
                 operator={calculator.operator}
             />
             <Numbers clickHandler={handleClick} />
-            <Operators clickHandler={handleClick} operator={calculator.operator} equal={calculator.equal} />
+            <Operators clickHandler={handleClick} highlight={(calculator.equal ? '=' : calculator.operator)} />
         </div>
     );
 }
