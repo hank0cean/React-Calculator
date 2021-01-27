@@ -1,9 +1,8 @@
 Simple Calculator with some similar functionality inspired by the Apple Calculator app when vertical. Some new features and some removed. Written in JavaScript using React.
 
-<img src="public/calculator-screenshot-1.png" width=250px>
+<img src="public/calculator-screenshot-3.png" width=250px>
 <img src="public/calculator-screenshot-2.png" width=250px>
-![Screenshot](public/calculator-screenshot-1.png)
-![Screenshot](public/calculator-screenshot-2.png)
+<img src="public/calculator-screenshot-1.png" width=250px>
 
 - Currently decimal values will occasionally create trailing values due to String to Integer conversions. 
 - Can not make negative values unless through subtraction.
