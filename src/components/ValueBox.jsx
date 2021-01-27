@@ -31,8 +31,8 @@ function ValueBox(props) {
 
     return (
         <div className="card valuebox valuebox-text" onClick={() => navigator.clipboard.writeText(props.valueB ? props.valueB : props.valueA)} >
-            {renderSecondValue(props.valueA ? props.valueB : (props.valueA === null || props.valueB === null ? '0' : props.valueA))}
-            {renderMainValue(props.valueA === null ? props.valueB : props.valueA)}
+            {renderSecondValue(props.valueB !== null && props.valueA && props.equal ? props.valueA : props.valueB)}
+            {renderMainValue(props.valueB !== null && props.equal ? props.valueB : props.valueA)}
             {renderCurrentOperator(props.operator)}
         </div>
     );

@@ -15,13 +15,14 @@ function Calculator(props) {
     const [calculator, setCalculator] = useState({
         valueA: '0',
         valueB: null,
-        operator: '=',
+        operator: null,
+        equal: true,
         decimal: false,
     });
 
     const handleClick = (buttonValue) => {
         if (isNumber(buttonValue)) {
-            if (calculator.valueA === null) {
+            if (calculator.valueA === null || calculator.equal) {
                 setCalculator({
                     valueA: buttonValue,
                     valueB: calculator.valueB,
@@ -51,25 +52,38 @@ function Calculator(props) {
                 setCalculator({
                     valueA: '0',
                     valueB: null,
-                    operator: '=',
+                    operator: null,
                 })
                 break;
             case '=':
                 if (calculator.valueB === null) {
                     setCalculator({
                         valueA: String(Number(calculator.valueA) ?  calc(calculator.valueA, calculator.operator, calculator.valueA) : '0'),
-                        valueB: null,
-                        operator: buttonValue,
+                        valueB: calculator.valueA,
+                        operator: calculator.operator,
+                        equal: true,
                         decimal: false,
                     })
                     break;
                 }
+                else if (calculator.equal) {
+                    setCalculator({
+                        valueA: calculator.valueA,
+                        valueB: String(calc((calculator.valueB === null ? calculator.valueA : calculator.valueB),
+                                            calculator.operator,
+                                            calculator.valueA)),
+                        operator: calculator.operator,
+                        equal: true,
+                        decimal: false,
+                    })
+                }
                 setCalculator({
-                    valueA: null,
+                    valueA: calculator.valueA,
                     valueB: String(calc((calculator.valueB === null ? calculator.valueA : calculator.valueB),
                                         calculator.operator,
                                         calculator.valueA)),
-                    operator: buttonValue,
+                    equal: true,
+                    operator: calculator.operator,
                 });
                 break;
             case '*':
@@ -77,6 +91,7 @@ function Calculator(props) {
             case '+':
             case '-':
                 let valueB = () => {
+                    if (calculator.equal) {return calculator.valueB};
                     if (calculator.valueA && calculator.valueB && calculator.operator === '=') {return calculator.valueA}
                     else if (calculator.valueA && calculator.valueB) {
                         return calc(calculator.valueB, calculator.operator, calculator.valueA)
@@ -100,12 +115,13 @@ function Calculator(props) {
     return (
         <div className="calculator">
             <ValueBox
+                equal={calculator.equal}
                 valueA={calculator.valueA}
                 valueB={calculator.valueB}
                 operator={calculator.operator}
             />
             <Numbers clickHandler={handleClick} />
-            <Operators clickHandler={handleClick} operator={calculator.operator} />
+            <Operators clickHandler={handleClick} operator={calculator.operator} equal={calculator.equal} />
         </div>
     );
 }
