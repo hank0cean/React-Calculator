@@ -1,5 +1,8 @@
 Simple Calculator with some similar functionality inspired by the Apple Calculator app when vertical. Some new features and some removed. Written in JavaScript using React.
 
+![alt text](https://github.com/hank0cean/React-Calculator/public/calcualtor-screenshot-1.png?raw=true)
+![alt text](https://github.com/hank0cean/React-Calculator/public/calcualtor-screenshot-2.png?raw=true)
+
 - Currently decimal values will occasionally create trailing values due to String to Integer conversions. 
 - Can not make negative values unless through subtraction.
 
