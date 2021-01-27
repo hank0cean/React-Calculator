@@ -1,15 +1,10 @@
-
-import weaveStrings from './../helpers/weaveStrings'
-
-import React, { useRef } from 'react';
+import React from 'react';
 import 'react-bootstrap'
 import './../styles/Calculator.css'
 import './../styles/ValueBox.css'
 
 function ValueBox(props) {
 
-    const valueBoxRef = useRef(null)
-    
     function renderSecondValue(secondValue) {
         return (
             <span className="valuebox-secondValue">
@@ -34,15 +29,10 @@ function ValueBox(props) {
         );
     }
 
-    function handleClick() {
-        navigator.clipboard.writeText(props.valueA)
-        alert("text copied: ", props.valueA);
-    }
-
     return (
         <div className="card valuebox valuebox-text" onClick={() => navigator.clipboard.writeText(props.valueB ? props.valueB : props.valueA)} >
-            {renderSecondValue(props.valueB)}
-            {renderMainValue(props.valueA)}
+            {renderSecondValue(props.valueA ? props.valueB : (props.valueA === null || props.valueB === null ? '0' : props.valueA))}
+            {renderMainValue(props.valueA === null ? props.valueB : props.valueA)}
             {renderCurrentOperator(props.operator)}
         </div>
     );

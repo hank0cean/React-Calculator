@@ -1,45 +1,37 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types'
+import React from 'react';
 
 import Button from 'react-bootstrap/Button';
 import './../styles/Numbers.css';
 import './../styles/Calculator.css';
 
-class Numbers extends Component {
+function Numbers(props) {
 
-    handleClick = value => {
-        console.log(value)
-        this.props.clickHandler(value);
-    };
-
-    renderNumber(value, selector) {
+    function renderNumber(value, selector) {
         let className = "card number " + selector;
 
         return (
-            <Button className={className} onClick={() => this.handleClick(value)}>
+            <Button className={className} onClick={() => props.clickHandler(value)}>
                 {value}
             </Button>
         );
     };
 
-    render() { 
-        return ( 
-            <div className="numbers">
-                {this.renderNumber('7', '')}
-                {this.renderNumber('8', '')}
-                {this.renderNumber('9', '')}
-                {this.renderNumber('4', '')}
-                {this.renderNumber('5', '')}
-                {this.renderNumber('6', '')}
-                {this.renderNumber('1', '')}
-                {this.renderNumber('2', '')}
-                {this.renderNumber('3', '')}
-                {this.renderNumber('a/c', 'clear')}
-                {this.renderNumber('0', '')}
-                {this.renderNumber('.', 'decimal')}
-            </div>
-        );
-    }
+    return ( 
+        <div className="numbers">
+            {renderNumber('7', '')}
+            {renderNumber('8', '')}
+            {renderNumber('9', '')}
+            {renderNumber('4', '')}
+            {renderNumber('5', '')}
+            {renderNumber('6', '')}
+            {renderNumber('1', '')}
+            {renderNumber('2', '')}
+            {renderNumber('3', '')}
+            {renderNumber('a/c', 'clear')}
+            {renderNumber('0', '')}
+            {renderNumber('.', 'decimal')}
+        </div>
+    );
 }
 
 export default Numbers;
