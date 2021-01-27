@@ -94,7 +94,7 @@ function Calculator(props) {
                     if (calculator.equal) {return calculator.valueB};
                     if (calculator.valueA && calculator.valueB && calculator.operator === '=') {return calculator.valueA}
                     else if (calculator.valueA && calculator.valueB) {
-                        return calc(calculator.valueB, calculator.operator, calculator.valueA)
+                        return String(calc(calculator.valueB, calculator.operator, calculator.valueA))
                     }
                     else if (calculator.valueB) {return calculator.valueB}
                     else {return calculator.valueA}
