@@ -31,7 +31,7 @@ function Calculator(props) {
                 return;
             }
             setCalculator({
-                valueA: Number(calculator.valueA) || calculator.valueA.slice(0, 2) === '0.' ? calculator.valueA + buttonValue : buttonValue,
+                valueA: parseInt(calculator.valueA) || calculator.valueA.slice(0, 2) === '0.' ? calculator.valueA + buttonValue : buttonValue,
                 valueB: calculator.valueB,
                 operator: calculator.operator,
             });
@@ -58,7 +58,7 @@ function Calculator(props) {
             case '=':
                 if (calculator.valueB === null) {
                     setCalculator({
-                        valueA: String(Number(calculator.valueA) ?  calc(calculator.valueA, calculator.operator, calculator.valueA) : '0'),
+                        valueA: String(parseInt(calculator.valueA) ?  calc(calculator.valueA, calculator.operator, calculator.valueA) : '0'),
                         valueB: calculator.valueA,
                         operator: calculator.operator,
                         equal: true,
